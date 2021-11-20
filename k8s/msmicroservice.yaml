@@ -3,13 +3,13 @@ kind: Service
 metadata:
   name: msmicroservice-marcomartinez
   labels:
-    app: lab01
+    app: examen
 spec:
   ports:
     - port: 8080
       targetPort: 8080
   selector:
-    app: lab01
+    app: examen
   type: ClusterIP
 ---
 apiVersion: apps/v1
@@ -19,7 +19,7 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: lab01
+      app: examen
       version: v1
   replicas: 1
   strategy:
@@ -29,11 +29,11 @@ spec:
   template:
     metadata:
       labels:
-        app: lab01
+        app: examen
         version: v1
     spec:
       containers:
-        - name: lab01
+        - name: examen
           image: martinezl/msmicroservice
           resources:
             limits:
